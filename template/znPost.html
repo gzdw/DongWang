@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Post</title>
+        <meta charset="utf-8" />
+        <script src="/speedphp/template/js/jquery-1.7.1.min.js"></script>
+        <script>
+            var init = function () {
+                $('#form_posts a').bind('click', function (event) {
+                    $('#form_posts input:hidden').val($(this).attr('data-id'));
+                    $('#form_posts').submit();
+                    
+                    event.preventDefault();
+                    return false;
+                });
+            };
+            $(document).ready(init);
+        </script>
+    </head>
+    
+    <body>
+        <div id="wrapper">
+            <ul>
+                <li><a href="{spUrl c=znPost a=add}" target="_blank">添加新文章</a></li>
+            </ul>
+            <br />
+            <ul>
+                <li><a href="{spUrl c=znPost a=group}">栏目</a></li>
+            </ul>
+            <form id="form_posts" method="post" action="{spUrl c=znPost a=edit}">
+            {foreach from=$group item=arr name=thearr1 key=key}
+            <ul> 
+                <li>{$key}</li>
+                <ul>
+                    {foreach from=$arr item=arr_item name=thearr1}
+                    <li>
+                        <a href="{spUrl c=znPost a=edit}" data-id="{$arr_item.post_id}">{$arr_item.post_title}</a>
+                    </li>
+                    {/foreach}
+                    <input type="hidden" name="post_id" id="post_id" value="-1" />
+                </ul>
+            </ul>
+            {/foreach}
+            </form>
+        </div>
+    </body>
+</html>

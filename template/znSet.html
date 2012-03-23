@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>znSet</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <form method="post" action="{spUrl c=znSet a=save}">
+                <fieldset>
+                    <legend>网站信息设置</legend>
+                    {foreach from=$sets item=arr name=thearr1}
+                    <div>
+                        <label for="{$arr.name}">{$arr.name}</label>
+                        <input type="text" name="{$arr.varname}" value="{$arr.value}" />
+                    </div>
+                    {/foreach}
+                    <input type="submit" value="保存" />
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

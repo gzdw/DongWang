@@ -1,0 +1,63 @@
+10
+
+dir
+0
+https://svn.sinaapp.com/zhining/SpeedPHP/Drivers/TemplateLite
+https://svn.sinaapp.com/zhining
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ad527170-555b-4981-bc2f-bf00f87b0c39
+
+class.config.php
+file
+
+
+
+add
+
+plugins
+dir
+
+
+
+add
+
+class.compiler.php
+file
+
+
+
+add
+
+class.template.php
+file
+
+
+
+add
+
+internal
+dir
+
+
+
+add
+
