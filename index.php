@@ -3,7 +3,7 @@ define("APP_PATH", dirname(__FILE__));
 define("SP_PATH", dirname(__FILE__).'/SpeedPHP');
 
 require(APP_PATH.'/include/config.php');
-
+// frame sets
 $spConfig = array(
     'default_controller' => 'znMain',  // 默认首页的控制器
     'default_action' => 'index',    // 默认的动作名称

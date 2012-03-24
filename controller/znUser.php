@@ -5,8 +5,7 @@
  **/
 
 class znUser extends spController {
-    
-    // 首页
+    // 登陆首页
     function index() {
         if (spClass('spAcl')->get() == SPACL_ADMIN) {   // 如果已登录
             $this->jump(spUrl('znManage'));
