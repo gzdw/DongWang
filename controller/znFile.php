@@ -5,10 +5,7 @@
  **/
 class znFile extends spController {
     
-    // 首页
-    function index() {
+    function index () {
         
     }
-    
-    
 }

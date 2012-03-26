@@ -58,3 +58,31 @@ require(APP_PATH.'/include/functions.php');
 
 spRun();
 
+$sql_path = 'speedphp.sql';
+
+if (file_exists($sql_path)) { 
+    $sql = file_get_contents($sql_path);
+}
+
+//$sql = trim($sql);
+
+
+/*
+$query = "";
+while(!feof($fp))
+{
+ $line = trim(fgets($fp,1024));
+if(ereg(";",$line)){
+$query .= $line;
+// $dsql->ExecuteNoneQuery($query);
+
+mysql_query($query);
+$str = mysql_error();
+echo  $query."<br><br><br> [ $sql ] <br><br><br><br><br>";
+$query='';
+}else if(!ereg("^(//|--)",$line)){
+$query .= $line;
+ }
+}
+
+*/
