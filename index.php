@@ -3,7 +3,9 @@ define("APP_PATH", dirname(__FILE__));
 define("SP_PATH", dirname(__FILE__).'/SpeedPHP');
 
 require(APP_PATH.'/include/config.php');
-// frame sets
+require(APP_PATH.'/include/Acl.php');
+
+
 $spConfig = array(
     'default_controller' => 'znMain',  // 默认首页的控制器
     'default_action' => 'index',    // 默认的动作名称
@@ -54,16 +56,18 @@ $spConfig = array(
 
 
 require(SP_PATH."/SpeedPHP.php");
-require(APP_PATH.'/include/functions.php');
+import(APP_PATH.'/include/functions.php');
 
 spRun();
 
+/*
 $sql_path = 'speedphp.sql';
 
 if (file_exists($sql_path)) { 
     $sql = file_get_contents($sql_path);
 }
 
+*/
 //$sql = trim($sql);
 
 

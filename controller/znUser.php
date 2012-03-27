@@ -53,4 +53,8 @@ class znUser extends spController {
         $image = spClass('Verify');
         $_SESSION['verify_code'] = $image->show();
     }
+    
+    function __construct() {
+        
+    }
 }
