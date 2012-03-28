@@ -46,6 +46,9 @@ class znUser extends spController {
         }
     }
     
+    
+    
+    
     // 生成验证码
     function verify() {
         include(APP_PATH.'/include/Verify.php');
