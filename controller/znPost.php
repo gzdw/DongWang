@@ -94,7 +94,6 @@ class znPost extends spController {
     
     function __construct() {
         parent::__construct();
-        aclMaxCheck() || exit('<h1>你没有权限进入...跳转回首页</h1>');  // 检查权限
         $this->sets = getGlobalSets();  // 添加模板变量
     }
     

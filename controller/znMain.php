@@ -6,13 +6,13 @@
 class znMain extends spController {
     // 首页
 	function index(){
-	    var_dump(spUrl('znMain', 'index'), spUrl('znMain', 'index', array('id'=>1)));
 		$this->display('znMain.html');
+        var_dump(spUrl('znMain', 'index'), spUrl('znMain', 'index', array('id'=>1)));
 	}
     
     function __construct() {
         parent::__construct();
-        $this->sets = getGlobalSets();  // 添加模板变量
+        //$this->sets = getGlobalSets();  // 添加模板变量
     }
     
 }

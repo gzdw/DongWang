@@ -12,6 +12,7 @@ class znUser extends spController {
         } else {
             $this->display('znUser.html');    // 显示模板
         }
+        //$this->display('znUser.html');    // 显示模板
     }
     
     // 提交后的处理行为
@@ -24,7 +25,7 @@ class znUser extends spController {
         
         // 校验输入
         if (empty($verify) || empty($user) || empty($pass)) {
-            $this->jump(spUrl('znUser'));
+            //$this->jump(spUrl('znUser'));
         } else {
             // 校验验证码
             if (strcasecmp($_SESSION['verify_code'], $verify)) {
@@ -33,12 +34,17 @@ class znUser extends spController {
                 exit;
             }
             
-            $db = spClass('m_user');
-            $condition = array('user' => $user, 'password' => md5($pass));
+            $m_user = spClass('m_user');
+            $condition = array('username' => $user, 'password' => md5($pass));
                 
             // 校验账号和密码
-            if ($result = $db->find($condition)) {
-                spClass('spAcl')->set(SPACL_ADMIN);
+            if ($result = $m_user->find($condition)) {
+                if ($result[0]['rank'] == 100) {
+                    
+                } else if ($result[0]['rank'] == 0) {
+                    spClass('spAcl')->set(SPADMIN);
+                }
+                spClass('spAcl')->set(SPSUPERADMIN);
                 $this->jump(spUrl('znManage','index'));
             } else {
                 $this->jump(spUrl('znUser'));
@@ -46,18 +52,11 @@ class znUser extends spController {
         }
     }
     
-    
-    
-    
     // 生成验证码
     function verify() {
         include(APP_PATH.'/include/Verify.php');
         header('Content-type: image/png');
-        $image = spClass('Verify');
+        $image = new Verify();
         $_SESSION['verify_code'] = $image->show();
-    }
-    
-    function __construct() {
-        
     }
 }

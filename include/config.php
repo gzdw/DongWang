@@ -7,6 +7,6 @@ $db_name = 'speedphp';
 $db_prefix = 'sp_';
 
 
-define('SPACL_ADMIN', 'SPADMIN');
-define('SPACL_ANONYMOUS', 'SPANONYMOUS');
-
+define('SPSUPERADMIN', 'SPSUPERADMIN'); // 超级管理员
+define('SPADMIN', 'SPADMIN'); // 普通管理员
+define('SPANONYMOUS', 'SPANONYMOUS'); // 匿名，访客

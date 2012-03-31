@@ -176,10 +176,11 @@ function spError($msg, $output = TRUE, $stop = TRUE){
  * @param return    是否存在返回数据，如需要返回，则该扩展点仅能有一个扩展操作
  */
 function spLaunch($configname, $launchargs = null, $returns = FALSE ){
+    
 	if( isset($GLOBALS['G_SP']['launch'][$configname]) && is_array($GLOBALS['G_SP']['launch'][$configname]) ){
 		foreach( $GLOBALS['G_SP']['launch'][$configname] as $launch ){
 			if( is_array($launch) ){
-				$reval = spClass($launch[0])->{$launch[1]}($launchargs);
+				$reval = spClass($launch[0])->{$launch[1]}($launchargs);   
 			}else{
 				$reval = call_user_func_array($launch, $launchargs);
 			}

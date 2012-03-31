@@ -3,7 +3,6 @@ class znManage extends spController {
     
     // 首页
     function index() {
-        
         $this->now = date('Y-m-d');
         $posts = spClass('m_post');
         $result = $posts->findAll();
@@ -13,7 +12,6 @@ class znManage extends spController {
     
     function __construct() {
         parent::__construct();
-        aclMaxCheck() || exit('<h1>你没有权限进入...跳转回首页</h1>');  // 权限检查
         $this->sets = getGlobalSets();  // 添加模板变量
     }
     

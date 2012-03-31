@@ -3,8 +3,6 @@ define("APP_PATH", dirname(__FILE__));
 define("SP_PATH", dirname(__FILE__).'/SpeedPHP');
 
 require(APP_PATH.'/include/config.php');
-require(APP_PATH.'/include/Acl.php');
-
 
 $spConfig = array(
     'default_controller' => 'znMain',  // 默认首页的控制器
@@ -25,13 +23,13 @@ $spConfig = array(
     		'auto_literal' => TRUE, // Smarty3新特性
         )
     ),
-    'lanch' => array(
+    'launch' => array(
         'router_prefilter' => array( 
-            array('spUrlRewrite', 'setReWrite'),  // 对路由进行挂靠，处理转向地址
             array('spAcl','maxcheck'), // 开启强制的权限控制
+            //array('spUrlRewrite', 'setReWrite'),  // 对路由进行挂靠，处理转向地址
          ),
      	'function_url' => array(
-			array("spUrlRewrite", "getReWrite"),  // 对spUrl进行挂靠，让spUrl可以进行Url_ReWrite地址的生成
+			//array("spUrlRewrite", "getReWrite"),  // 对spUrl进行挂靠，让spUrl可以进行Url_ReWrite地址的生成
 	    ),
     ),
     'url' => array(
@@ -42,23 +40,30 @@ $spConfig = array(
     	'spAcl' => array( // acl扩展设置
     		'prompt' => array("m_user", "acljump"),
     	),
+        /*
         'spUrlRewrite' => array(
 			'hide_default' => false, // 隐藏默认的main/index名称，但这前提是需要隐藏的默认动作是无GET参数的
  			'args_path_info' => false, // 地址参数是否使用path_info的方式，默认否
 			'suffix' => '.html', // 生成地址的结尾符
 		),
+        */
     ),
+    /*
     'html' => array(  // HTML生成配置
 		'enabled' => TRUE, // 开启HTML生成功能
         'safe_check_file_exists' => TRUE, // 获取URL时，检查物理HTML文件是否存在，如文件不存在，则返回安全的动态地址
 	),
+    */
 );
 
 
 require(SP_PATH."/SpeedPHP.php");
 import(APP_PATH.'/include/functions.php');
 
+
 spRun();
+
+
 
 /*
 $sql_path = 'speedphp.sql';

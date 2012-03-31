@@ -1,14 +1,5 @@
 <?php 
 
-// 最大权限检查
-function aclMaxCheck() {
-    return spClass('spAcl')->maxCheck();
-}
-
-// 最小权限检查
-function aclMinCheck() {
-    return spClass('spAcl')->minCheck();
-}
 
 // 获取全局设置
 function getGlobalSets() {
